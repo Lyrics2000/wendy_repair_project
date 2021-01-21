@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+ <section class="page-title" style="background-image:url(images/breadcrumb-bg.jpg)">
+    <div class="container">
+        <div class="clearfix">
+            <div class="float-left">
+                <div class="title">Welcome to Repairzone</div>
+                 {% if tagname %}
+                {% if tagname  == 'MR' %}
+                <h2>Mobile  Repair</h2>
+                {% elif tagname  == 'CR' %}
+                <h2>Computer  Repair</h2>
+                {% elif tagname  == 'TR' %}
+                <h2>Television  Repair</h2>
+                {% elif tagname  == 'DR' %}
+                <h2>Desktop  Repair</h2>
+                {% elif tagname  == 'TBR' %}
+                <h2>Tablet  Repair</h2>
+                {% else %}
+                {% endif %}
+                {% endif %}
+            </div>
+            <div class="float-right">
+                <ul class="page-breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                     {% if tagname %}
+                    {% if tagname  == 'MR' %}
+                    <li>Mobile  Repair</li>
+                    {% elif tagname  == 'CR' %}
+                    <li>Computer  Repair</li>
+                    {% elif tagname  == 'TR' %}
+                    <li>Television  Repair</li>
+                    {% elif tagname  == 'DR' %}
+                    <li>Desktop  Repair</li>
+                    {% elif tagname  == 'TBR' %}
+                    <li>Tablet  Repair</li>
+                    {% else %}
+                    {% endif %}
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<!-- About Sec Start -->
+
+
+<!-- Blog Section -->
+<section class="blog-sec">
+<div class="container">
+    <!-- Sec Title -->
+    <div class="section-title"> 
+    {% if tagname %}
+    {% if tagname  == 'MR' %}
+	  <span>Mobile  Repair</span>
+    {% elif tagname  == 'CR' %}
+    <span>Computer  Repair</span>
+    {% elif tagname  == 'TR' %}
+    <span>Television  Repair</span>
+    {% elif tagname  == 'DR' %}
+    <span>Desktop  Repair</span>
+    {% elif tagname  == 'TBR' %}
+    <span>Tablet  Repair</span>
+    {% else %}
+    {% endif %}
+    {% endif %}
+      <h2>Our Technicians</h2>
+    </div>
+<div class="row">
+
+
+<!-- Single Blog Sec -->
+{% if services %}
+
+{% for sv in services %}
+
+<div class="col-lg-4 col-md-6">
+    <div class="single-blog"> <a href="{{sv.technician.get_absolute_url}}"> <img src="{{sv.technician.technician_picture.url}}" alt=""> </a>
+        <div class="blog-content"> <a class="user" href="#"> <i class="bx bx-user"></i></a>
+            <h3> <a href="{{sv.technician.get_absolute_url}}">{{sv.technician.technician_name}}</a> </h3>
+            <ul>
+            <li>{{sv.technician.shop_location}}<i class="bx bx-calendar"></i> </li>
+            <li class="date"> <a class="read-more" href="{{sv.technician.get_absolute_url}}"> View More <i class="fas fa-arrow-right bx-fade-right"></i> </a> </li>
+            </ul>
+        </div>
+    </div>
+ </div>
+
+{% endfor %}
+{% endif %}
+
+
+
+
+ 
+ </div>	
+</div>
+</section>
+{% endblock content %}

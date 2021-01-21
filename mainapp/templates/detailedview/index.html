@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+ <section class="page-title" style="background-image:url({% static 'images/breadcrumb-bg.jpg' %})">
+    <div class="container">
+        <div class="clearfix">
+            <div class="float-left">
+                <div class="title">Welcome to Repairzone</div>
+                <h2>{{object.technician_name}}</h2>
+            </div>
+            <div class="float-right">
+                <ul class="page-breadcrumb">
+                    <li><a href="index.html">Home</a></li>
+                    <li>{{object.technician_name}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End Page Title-->
+<!-- About Sec Start -->
+<section class="blog-area blog-sec inner-wrapper">
+  <div class="container">
+    <div class="row">
+        <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12">
+          <div class="blog-details"> <img src="{{object.technician_picture.url}}" alt="">
+            <h2>Overview</h2>
+            <p>{{object.technician_overview}}</p>
+          </div>
+          <div class="post-share-and-tag row">
+            <div class="col-xl-7 col-lg-7 col-md-6">
+              
+            </div>
+            <div class="col-xl-5 col-lg-5 col-md-6">
+              <div class="social"> 
+              {% if object.facebook_url %}
+              <a href="{{object.facebook_url}}" class="cl-facebook"><i class="fab fa-facebook-f"></i></a> 
+              {% endif %}
+              
+              {% if object.twitter_url %}
+              <a href="{{object.twitter_url}}" class="cl-twitter"><i class="fab fa-twitter"></i></a> 
+              {% endif %}
+
+              {% if object.youtube_url %}
+              <a href="{{object.youtube_url }}" class="cl-youtube"><i class="fab fa-youtube"></i></a> 
+              {% endif %}
+              
+              
+              </div>
+            </div>
+          </div>
+          <h3>Comments</h3>
+          {% if testimonies %}
+            {% for t in testimonies %}
+            {% if t.technician.id == object.id %}
+      
+          <div class="blog-all-comments">
+            
+            
+            <div class="blog-comments">
+              <div class="author-thumb"> <img src="{% static 'images/author-1.jpg' %}" alt="" /> </div>
+              <div class="author-comments">
+                <div class="author-details">
+                  <h4>{{t.Clients_Name}}</h4>
+                  
+                </div>
+                <div class="author-designation"> {{t.date}} </div>
+                <p>{{t.comment}}</p>
+              </div>
+            </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+            
+          
+        
+          <div class="blog-comment-form">
+            <h3>Leave a Comment</h3>
+          <form method ='POST' action = '{% url "mainapp:comments" %}' class="form">
+          {% csrf_token %}
+          <input type="hidden" name="product_id" value="{{object.id}}"/>
+              <div class="row">
+                <div class="col-md-6">
+                  {{form.Clients_Name}}
+                </div>
+                <div class="col-md-12">
+                  {{form.comment}}
+                </div>
+                <div class="col-md-12">
+                  <button type="submit" class="default-btn">Post Comment</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6">
+          <div class="site-sidebar">
+            <div class="single-sidebar">
+             
+            </div>
+            <div class="single-sidebar">
+              <h3>Services</h3>
+              <ul>
+                {% if services %}
+                {% for s in  services %}
+                {% if s.technician.id  ==  object.id %}
+                <li><a href="javascript:void(0)">{{s.get_technician_services_display}}</a></li>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+              </ul>
+            </div>
+           
+
+
+
+            {% if object.phone_number or object.email %}
+           <div class="sidebar-widget contact-widget">
+                <div class="widget-content" style="background-image:url(images/background-pattern.png)">
+                  <div class="icon flaticon-phone-call"></div>
+                  <div class="text">Need His service? <br>
+                    Contact him on</div>
+                    {% if object.phone_number %}
+                  <div class="number">{{object.phone_number}}</div>
+                  {% endif %}
+                  {% if  object.email %}
+                  <div class="email">{{object.email}}</div>
+                  {% endif %}
+                </div>
+              </div>
+            {% endif %}
+
+
+       
+          </div>
+        </div>             
+  </div>
+</section>
+{% endblock content %}

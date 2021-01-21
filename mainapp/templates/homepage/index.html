@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- ttm-stickable-header-w end--> 
+<!-- Site Slider Start -->
+<section class="slider-one">
+  <div class="slider-one__carousel owl-carousel owl-theme">
+    {% if banner %}
+    {% for p in banner  %}
+    <div class="item slider-one__slider-1" style="background-image: url({{p.banner_picture.url}});">
+      <div class="container">
+        <h2 class="slider-one__title">Repair your Computer <br>
+          laptop & iphone. </h2>
+        <!-- /.slider-one__title -->
+        <p class="slider-one__text">{{p.banner_description}}</p>
+        <a href="contact-us.html" class="default-btn slider-one__text">Contact Us <i class="fas fa-long-arrow-alt-right"></i> </a> 
+        <!-- /.slider-one__text --> 
+      </div>
+      <!-- /.container --> 
+    </div>
+    {% endfor %}
+    {% endif %}
+    <!-- /.item -->
+   
+    <!-- /.item -->
+    
+    <!-- /.item --> 
+  </div>
+  <!-- /.slider-one__carousel --> 
+</section>
+<!-- Features Sec Start -->
+<section class="features-sec mt-minus-70 pt-0 pb-70">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-sm-6 p-0">
+        <div class="single-offer"> <i class="icon mbri-mobile"></i>
+          <h3>Mobile Service</h3>
+          <p>This includes mobile screen repair, motherbord replacement , button repair etc</p>
+          <a class="circle-read-more" href="{% url "mainapp:mobilerepair" %}"> <i class="ti-angle-right"></i> </a> </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 p-0">
+        <div class="single-offer"> <i class="icon mbri-laptop"></i>
+          <h3>Computer Service</h3>
+          <p>This includes computer screen repair, motherbord replacement , button repair etc</p>
+          <a class="circle-read-more" href="{% url "mainapp:computerrepair" %}"> <i class="ti-angle-right"></i> </a> </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 p-0">
+        <div class="single-offer"> <i class="icon mbri-desktop"></i>
+          <h3>Television Service</h3>
+          <p>This includes Television screen repair, motherbord replacement , button repair etc</p>
+          <a class="circle-read-more" href="{% url "mainapp:televisonrepair" %}"> <i class="ti-angle-right"></i> </a> </div>
+      </div>
+      <div class="col-lg-3 col-sm-6 p-0">
+        <div class="single-offer"> <i class="icon mbri-responsive"></i>
+          <h3>Desktop Service</h3>
+          <p>This includes Desktop screen repair, motherbord replacement , button repair etc</p>
+          <a class="circle-read-more" href="{% url "mainapp:desktoprepair" %}"> <i class="ti-angle-right"></i> </a> </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- About Sec Start -->
+<section class="about-sec">
+  <div class="container">
+    <div class="section-title"> <span>What We Do </span>
+      <h2>About Us</h2>
+    </div>
+    <div class="row justify-content-between align-items-center">
+      <div class="col-md-12 col-lg-5">
+        <div class="video-promo-content mb-md-4 mb-lg-0">
+          <h2>Service We Offers</h2>
+       
+          <ul class="list-unstyled tech-feature-list">
+            <li class="py-1"><span class="ti-check-box mr-2"></span><strong>Mobile Repair</strong> Services </li>
+            <li class="py-1"><span class="ti-check-box mr-2"></span><strong>Computer Repair</strong> Service</li>
+            <li class="py-1"><span class="ti-check-box mr-2"></span><strong>Television Repair</strong> Services</li>
+            <li class="py-1"><span class="ti-check-box mr-2"></span><strong>Desktop Repair</strong> Services</li>
+            <li class="py-1"><span class="ti-check-box mr-2"></span><strong>Tab Repair</strong> Services</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-6 mt-3 mt-lg-0">
+        <div class="card border-0 shadow-sm text-white"> <img src="{% static 'images/about-img.jpg' %}" alt="video" class="img-fluid rounded shadow-sm" data-popupalt-original-title="null" title="video">
+          <div class="card-img-overlay text-center" data-popupalt-original-title="null" title="video"> <a href="../watch.html?v=9No-FiEInLA" class="popup-youtube video-play-icon color-bip shadow"><span class="ti-control-play" data-popupalt-original-title="null" title="null"></span> </a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Services Sec Start -->
+<section class="services-sec service-area-two">
+  <div class="container">
+    <div class="section-title"> <span>What We Do </span>
+      <h2>Services</h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 col-sm-6"> 
+        <!-- Single Services Start -->
+        <div class="single-service">
+          <div class="service-content-wrap"> <i class="icon mbri-mobile"></i>
+            <h3>Mobile Repair</h3>
+            <p>This includes mobile screen repair, motherbord replacement , button repair etc</p>
+          </div>
+          <div class="service-heading"> <a class="circle-read-more" href="{% url "mainapp:mobilerepair" %}">
+            <h3>Mobile Repair</h3>
+            <i class="ti ti-angle-right"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6"> 
+        <!-- Single Services Start -->
+        <div class="single-service">
+          <div class="service-content-wrap"> <i class="icon mbri-laptop"></i>
+            <h3>Computer Repair</h3>
+            <p>This includes computer screen repair, motherbord replacement , button repair etc</p>
+          </div>
+          <div class="service-heading"> <a class="circle-read-more" href="{% url "mainapp:computerrepair" %}">
+            <h3>Computer Repair</h3>
+            <i class="ti ti-angle-right"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6"> 
+        <!-- Single Services Start -->
+        <div class="single-service">
+          <div class="service-content-wrap"> <i class="icon mbri-desktop"></i>
+            <h3>Television Repair</h3>
+            <p>This includes Television screen repair, motherbord replacement , button repair etc</p>
+          </div>
+          <div class="service-heading"> <a class="circle-read-more" href="{% url "mainapp:televisonrepair" %}">
+            <h3>Television Repair</h3>
+            <i class="ti ti-angle-right"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6"> 
+        <!-- Single Services Start -->
+        <div class="single-service">
+          <div class="service-content-wrap"> <i class="icon mbri-responsive"></i>
+            <h3>Desktop Repair</h3>
+            <p>This includes Desktop screen repair, motherbord replacement , button repair etc</p>
+          </div>
+          <div class="service-heading"> <a class="circle-read-more" href="{% url "mainapp:desktoprepair" %}">
+            <h3>Desktop Repair</h3>
+            <i class="ti ti-angle-right"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6"> 
+        <!-- Single Services Start -->
+        <div class="single-service">
+          <div class="service-content-wrap"> <i class="icon mbri-tablet"></i>
+            <h3>Tablet Repair</h3>
+            <p>This includes Tablet screen repair, motherbord replacement , button repair etc</p>
+          </div>
+          <div class="service-heading"> <a class="circle-read-more" href="{% url "mainapp:tabletrepair" %}">
+            <h3>Tablet Repair</h3>
+            <i class="ti ti-angle-right"></i> </a> </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6"> 
+        <!-- Single Services Start -->
+        <div class="single-service">
+          <div class="service-content-wrap"> <i class="icon mbri-like"></i>
+            <h3>Quality Support</h3>
+            <p>We offer Quality support which is timely, when you contact us via email or phone</p>
+          </div>
+          <div class="service-heading"> <a class="circle-read-more" href="service-details.html">
+            <h3>Quality Support</h3>
+            <i class="ti ti-angle-right"></i> </a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Our Team Sec Start -->
+<section class="our-team-sec">
+  <div class="container">
+    <div class="section-title"> <span>Professional Team </span>
+      <h2>Our Techincal Team</h2>
+    </div>
+    <div class="row">
+    {% if technician %}
+    {% for t in technician %}
+      <div class="col-lg-3 col-sm-6"> 
+        <!-- Single Team Start -->
+        <div class="single-team"> <img src="{{t.technician_picture.url}}" alt="" data-popupalt-original-title="null" title="">
+          <div class="team-content">
+            <h3>{{t.technician_name}}</h3>
+            <span>{{t.shop_location}}</span> </div>
+          <ul>
+          {% if t.facebook_url %}
+            <li> <a href="#"><i class="fab fa-facebook-f"></i></a> </li>
+          {% elif t.twitter_url %}
+            <li> <a href="#"><i class="fab fa-twitter"></i></a> </li>
+          {% elif t.vimeo_url %}
+        
+            <li> <a href="#"><i class="fab fa-vimeo-v"></i></a> </li>
+          {% else %}
+
+          {% endif %}
+          </ul>
+        </div>
+      </div>
+    {% endfor %}
+    {% endif %}
+     
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+
+<!-- Blog Section -->
+{% endblock content %}
