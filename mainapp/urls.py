@@ -6,7 +6,7 @@ technician_service_computer_repair,
 technician_service_desktop_remapair,
 technician_service_mobile_repair,
 technician_service_tablets_remapair,
-technician_service_television_remapair,ItemDetail,comments)
+technician_service_television_remapair,ItemDetail,comments,contact_us)
 
 app_name = 'mainapp'
 
@@ -20,6 +20,7 @@ urlpatterns = [
     path('computerrepair/',technician_service_computer_repair, name = "computerrepair"),
     path('technician/<slug>/', ItemDetail.as_view(), name='techniciandetail'),
     path('comments/', comments, name='comments'),
+    path('contact/', contact_us, name='contact'),
     
    
 ]
